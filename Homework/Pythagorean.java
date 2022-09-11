@@ -13,6 +13,7 @@ public class Pythagorean {
 		System.out.print("Enter a positive integer: ");
 		int limit = in.nextInt();
 		
+		// Pythagorean Equation is a² + b² = c² thus the variable names
 		for(int c = 0; c <= limit; c++) {
 			for(int b = 0; b < c; b++) {
 				for(int a = 0; a < b; a++) {
