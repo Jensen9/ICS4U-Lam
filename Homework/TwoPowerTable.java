@@ -29,7 +29,7 @@ public class TwoPowerTable {
 			out.close();
 		}
 		catch (IOException e) {
-			
+			e.printStackTrace();
 		}
 	}
 }
