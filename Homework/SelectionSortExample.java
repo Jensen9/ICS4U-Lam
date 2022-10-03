@@ -1,6 +1,5 @@
 import java.util.Arrays;
-public class SelectionSortExample
-{
+public class SelectionSortExample {
     public static void selectionSort(int array[]) {
         for(int i = array.length - 1; i > 0; i--) {
             int maxIndex = array[0];
