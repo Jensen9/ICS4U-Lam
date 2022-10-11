@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Prime {
+public class PrimeNumber {
    public static boolean prime (int n, int d) {
       if (d == 1) {
          return true;
