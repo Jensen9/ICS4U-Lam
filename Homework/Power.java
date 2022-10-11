@@ -14,9 +14,9 @@ public class Power {
    public static void main(String[] args) {
       Scanner in = new Scanner(System.in);
 
-      System.out.println("Please provide a number");
+      System.out.print("Enter a number: ");
       int x = in.nextInt();
-      System.out.println("Please provide a power");
+      System.out.print("Enter the power: ");
       int n = in.nextInt();
       
       int result = power(x, n, x);
