@@ -7,11 +7,13 @@
 import java.io.*;
 
 public class CountCases {
+
 	public static void main(String[] args) {
+		
 		int uppercase = 0, lowercase = 0;
-    
 		try {
 			BufferedReader read = new BufferedReader(new FileReader("passage.txt"));
+			
 			String line = "";
 			
 			while((line = read.readLine()) != null) {

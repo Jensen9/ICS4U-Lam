@@ -16,7 +16,6 @@ public class AddNumbers
 		    while((line = read.readLine()) != null) {
 		        sum += Double.valueOf(line);
 		    }
-		    read.close();
 		}
 		catch(IOException e) {
 		    e.printStackTrace();

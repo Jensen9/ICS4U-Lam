@@ -1,9 +1,3 @@
-/**
- * Name: Jensen Sung
- * Date: 09/08/2022
- * Description: This program gets three lowercase letter inputs from the user and sorts them in alphabetical order
-*/
-
 import java.util.Arrays;
 import java.util.Scanner;
 

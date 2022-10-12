@@ -1,9 +1,3 @@
-/**
- * Name: Jensen Sung
- * Date: 09/08/2022
- * Description: This programs prompts the user to input an integer and finds the power of two whos value is closest to the integer
- */
-
 import java.util.Scanner;
 
 public class LeastTwoPower {
