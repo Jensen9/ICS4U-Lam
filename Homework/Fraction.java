@@ -17,7 +17,7 @@ public class Fraction {
 		
 		product.num = num + other.num;
 		product.den = den + other.den;
-		
+		product.reduce();
 		return product;
 	}
 	public Fraction plus (Fraction other) {
@@ -25,11 +25,28 @@ public class Fraction {
 		
 		sum.num = num + other.num;
 		sum.den = den;
-
+		sum.reduce();
 		return sum;
 	}
 	public void timesEquals(Fraction p) {
-		this.num = num * p.num;
-		this.den = den * p.num;
+		num = num * p.num;
+		den = den * p.num;
+		this.reduce();
+	}
+	public void reduce() {
+		int div = gcd(num, den);
+		num /= div;
+		den /= div;
+	}
+	public static int gcd(int x, int y) {
+		if(x == y) {
+			return x;
+		}
+		else if(x > y) {
+			return gcd(y, (x - y));
+		}
+		else {
+			return gcd(y, x);
+		}
 	}
 }
