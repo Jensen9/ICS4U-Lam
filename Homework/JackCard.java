@@ -4,7 +4,7 @@ public class JackCard {
 	private int discount;
 	private int points;
 	private int pin;
-	private double maxBalance;
+	private static double maxBalance;
 	
 	//Accessors
 	public String getName() {
@@ -27,7 +27,7 @@ public class JackCard {
 		return pin;
 	}
 	
-	public double getMaxBalance() {
+	public static double getMaxBalance() {
 		return maxBalance;
 	}
 	
@@ -44,7 +44,7 @@ public class JackCard {
 		points = p;
 	}
 	
-	public void setMaxBalance(int m) {
+	static void setMaxBalance(double m) {
 		maxBalance = m;
 	}
 	
@@ -94,7 +94,7 @@ public class JackCard {
 	}
 	
 	public boolean pay(double amt, int p, boolean usePoints) {
-		if(p != pin || amt > balance || usePoints && points < 20) {
+		if(p != pin || amt > balance || usePoints && points < 2) {
 			return false;
 		}
 		
@@ -108,6 +108,11 @@ public class JackCard {
 			balance -= amt * (1 - (discount / 100));
 			points += amt / 2;
 		}
+		
+		if(balance > maxBalance) {
+			balance = maxBalance;
+		}
+		
 		discount = calculateDiscount();
 		return true;
 	}
@@ -148,6 +153,6 @@ public class JackCard {
 	public String toString() {
 		return "Card Holder: " + name + "\nBalance: $" + balance 
 				+ "\nDiscount Rate: " + discount + "%\nPoints: " + points
-				+ "\nPIN: " + pin;
+				+ "\nPIN: " + pin + "\n";
 	}
 }
