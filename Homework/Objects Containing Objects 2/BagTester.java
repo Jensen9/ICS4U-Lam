@@ -58,7 +58,10 @@ public class BagTester {
 		int sheets4 = in.nextInt();
 		
 		SchoolBag bagOne = new SchoolBag(new Binder(style1, colour1, sheets1), new Binder(style2, colour2, sheets2));
-		SchoolBag bagTwo = new SchoolBag(new Binder(style3, colour3, sheets3), new Binder(style4, colour4, sheets4));
+		
+		Binder binderThree = new Binder(style3, colour3, sheets3);
+		Binder binderFour = new Binder(style4, colour4, sheets4);
+		SchoolBag bagTwo = new SchoolBag(binderThree, binderFour);
 		bagOne.setStyle(bagStyle1);
 		bagTwo.setStyle(bagStyle2);
 		
