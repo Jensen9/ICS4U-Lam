@@ -3,6 +3,7 @@ public class BagTester {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		
+		// Getting variables
 		System.out.println("Bag #1");
 		System.out.println("Bag Style: ");
 		String bagStyle1 = in.nextLine();
@@ -57,6 +58,7 @@ public class BagTester {
 		System.out.println("Sheets: ");
 		int sheets4 = in.nextInt();
 		
+		// Initializing school bags
 		SchoolBag bagOne = new SchoolBag(new Binder(style1, colour1, sheets1), new Binder(style2, colour2, sheets2));
 		
 		Binder binderThree = new Binder(style3, colour3, sheets3);
@@ -67,7 +69,7 @@ public class BagTester {
 		
 		boolean exit = false;
 		
-		while(!exit) {
+		while(!exit) { // Loops until -1 is inputted
 			System.out.print("Please select a schoolbag (by ID, 1 or 2): ");
 			int bagNum = in.nextInt();
 			
@@ -103,6 +105,7 @@ public class BagTester {
 			}
 		}
 		
+		// Printing information on both school bags
 		System.out.println("SchoolBag #1: \n" + bagOne);
 		System.out.println("\nSchoolBag #2: \n" + bagTwo);
 	}
