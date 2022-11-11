@@ -3,15 +3,21 @@ public class Lab {
 	private int numInstalled = 0;
 	Computer[] computer;
 	
+	// Mutator
+	public void setMaxCapacity(int max) {
+		maxCapacity = max;
+	}
+	
 	// Constructor
 	public Lab(Computer[] list) {
 		computer = new Computer[list.length];
-		for(int i = 0; i < list.length; i++) {
+		for(int i = 0; i < list.length && i <= maxCapacity; i++) {
 			computer[i] = list[i];
 		}
 		numInstalled += list.length;
 	}
 	
+	// Methods
 	public boolean installComputer(Computer a) {
 		if(numInstalled < maxCapacity) {
 			computer[numInstalled] = new Computer(a.getSerial(), a.getManufacturer(), a.getYearMade(), a.getYearPurchased(), a.getProcessorSpeed(), a.getRam(), a.getWarranty());
@@ -25,10 +31,10 @@ public class Lab {
 	
 	public int averageAge() {
 		int temp = 0;
-		for(int i = 0; i < computer.length; i++) {
+		for(int i = 0; i < numInstalled; i++) {
 			temp += 2022 - computer[i].getYearMade();
 		}
-		return temp / computer.length;
+		return temp / numInstalled;
 	}
 	
 	public Computer newest() {
@@ -72,13 +78,18 @@ public class Lab {
 	}
 	
 	public Computer[] expiring() {
-		Computer expiring[] = new Computer[1];
+		int counter = 0;
+		for(int i = 0; i < computer.length; i++) {
+			if(computer[i].getWarranty() == 2023) {
+				counter++;
+			}
+		}
+		Computer expiring[] = new Computer[counter];
 		for(int i = 0; i < computer.length; i++) {
 			if(computer[i].getWarranty() == 2023) {
 				expiring[expiring.length] = computer[i];
 			}
 		}
-		
 		return expiring;
 	}
 }
