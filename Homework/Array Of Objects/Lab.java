@@ -23,7 +23,7 @@ public class Lab {
 		int warranty; 
 
 		try {
-			BufferedReader read = new BufferedReader(new FileReader("computer.txt"));
+			BufferedReader read = new BufferedReader(new FileReader(fileName));
 
 			int numComputers = Integer.parseInt(read.readLine());
 			if(numComputers > maxCapacity) {
