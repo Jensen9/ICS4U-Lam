@@ -2,7 +2,7 @@ import java.io.*;
 
 public class Lab {
 	private int maxCapacity;
-	private int numInstalled = 0;
+	private int numInstalled;
 	Computer[] computer;
 
 	// Mutator
@@ -13,6 +13,7 @@ public class Lab {
 	// Constructor
 	public Lab(String fileName, int max) {
 		maxCapacity = max;
+		numInstalled = 0;
 		
 		String serial;
 		String manufacturer;
