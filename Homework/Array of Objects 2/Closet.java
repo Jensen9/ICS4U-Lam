@@ -1,12 +1,13 @@
 public class Closet {
 	private int maxShirt;
-	private int numShirt = 0;
+	private int numShirt;
 	Shirt[] shirts;
 	
 	// Constructor
 	public Closet(int maxShirt) {
 		this.maxShirt = maxShirt;
 		shirts = new Shirt[maxShirt];
+		numShirt = 0;
 	}
 	
 	// Accessor
