@@ -2,13 +2,14 @@ public class Lab {
 	private int maxCapacity;
 	private int numInstalled;
 	Computer[] computer;
+	private static int CURRENT_YEAR = 2022;
 
 	// Mutator
 	public void setMaxCapacity(int max) {
 		maxCapacity = max;
 	}
 
-	// Constructor	
+	// Constructor
 	public Lab(int max) {
 		maxCapacity = max;
 		computer = new Computer[max];
@@ -30,7 +31,7 @@ public class Lab {
 	public int averageAge() {
 		int temp = 0;
 		for(int i = 0; i < numInstalled; i++) {
-			temp += 2022 - computer[i].getYearMade();
+			temp += CURRENT_YEAR - computer[i].getYearMade();
 		}
 		return temp / numInstalled;
 	}
@@ -38,7 +39,7 @@ public class Lab {
 	public Computer newest() {
 		Computer temp = computer[0];
 		for(int i = 1; i < numInstalled; i++) {
-			if(temp.getYearMade() > computer[i].getYearMade()) {
+			if(temp.compareToOlder(computer[i]) < 0) {
 				temp = computer[i];
 			}
 		}
@@ -48,7 +49,7 @@ public class Lab {
 	public Computer fastest() {
 		Computer temp = computer[0];
 		for(int i = 1; i < numInstalled; i++) {
-			if(temp.getProcessorSpeed() < computer[i].getProcessorSpeed()) {
+			if(temp.compareToFaster(computer[i]) < 0) {
 				temp = computer[i];
 			}
 		}
@@ -58,7 +59,7 @@ public class Lab {
 	public Computer mostRAM() {
 		Computer temp = computer[0];
 		for(int i = 1; i < numInstalled; i++) {
-			if(temp.getRam() < computer[i].getRam()) {
+			if(temp.compareToRAM(computer[i]) < 0) {
 				temp = computer[i];
 			}
 		}
@@ -78,14 +79,14 @@ public class Lab {
 	public Computer[] expiring() {
 		int counter = 0;
 		for(int i = 0; i < numInstalled; i++) {
-			if(computer[i].getWarranty() == 2023) {
+			if(computer[i].getWarranty() == CURRENT_YEAR + 1) {
 				counter++;
 			}
 		}
 		Computer expiring[] = new Computer[counter];
 		counter = 0;
 		for(int i = 0; i < numInstalled; i++) {
-			if(computer[i].getWarranty() == 2023) {
+			if(computer[i].getWarranty() == CURRENT_YEAR + 1) {
 				expiring[counter] = computer[i];
 				counter++;
 			}
