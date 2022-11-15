@@ -83,30 +83,15 @@ public class Computer {
 				+ ram + "GB\nWarranty: " + warranty;
 	}
 	
-	public Computer faster(Computer other) {
-		if(this.processorSpeed > other.processorSpeed) {
-			return this;
-		}
-		else {
-			return other;
-		}
+	public double compareToFaster(Computer other) {
+		return this.processorSpeed - other.processorSpeed;
 	}
 	
-	public Computer moreRAM(Computer other) {
-		if(this.ram > other.ram) {
-			return this;
-		}
-		else {
-			return other;
-		}
+	public int compareToRAM(Computer other) {
+		return this.ram - other.ram;
 	}
 	
-	public Computer older(Computer other) {
-		if(this.yearMade < other.yearMade) {
-			return other;
-		}
-		else {
-			return this;
-		}
+	public int compareToOlder(Computer other) {
+		return this.yearMade - other.yearMade;
 	}
 }
