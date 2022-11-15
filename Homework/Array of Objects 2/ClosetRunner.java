@@ -27,7 +27,7 @@ public class ClosetRunner {
 			System.out.println("File error");
 		}
 		
-		for(int i = 0; i < 2; i++) {
+		for(int i = 0; i < 5; i++) {
 			System.out.println("Shirt #" + (i + 1) + " colour: ");
 			String colour = in.nextLine();
 			
@@ -49,6 +49,6 @@ public class ClosetRunner {
 		
 		System.out.println("There are " + closet.shirtsSized(size) + " sized " + size + "\n");
 		
-		System.out.println(closet.biggest());
+		System.out.println("The biggest shirt is:\n" + closet.biggest());
 	}
 }
