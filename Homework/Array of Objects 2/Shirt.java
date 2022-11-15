@@ -2,6 +2,7 @@ public class Shirt {
 	private String colour;
 	private int size;
 	private int yearPurchased;
+	private static int CURRENT_YEAR = 2022;
 	
 	// Constructor
 	public Shirt(String colour, int size, int yearPurchased) {
@@ -38,23 +39,15 @@ public class Shirt {
 	
 	// Methods
 	public int age() {
-		return 2022 - yearPurchased;
+		return CURRENT_YEAR - yearPurchased;
 	}
 	
-	public Shirt newer(Shirt other) {
-		if(this.yearPurchased > other.yearPurchased) {
-			return this;
-		} else {
-			return other;
-		}
+	public int compareToAge(Shirt other) {
+		return this.yearPurchased - other.yearPurchased;
 	}
 	
-	public Shirt bigger(Shirt other) {
-		if(this.size > other.size) {
-			return this;
-		} else {
-			return other;
-		}
+	public int compareToSize(Shirt other) {
+		return this.size - other.size;
 	}
 	
 	public boolean equal(Shirt other) {
