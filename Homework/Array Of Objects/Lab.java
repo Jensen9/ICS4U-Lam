@@ -1,5 +1,3 @@
-import java.io.*;
-
 public class Lab {
 	private int maxCapacity;
 	private int numInstalled;
@@ -10,50 +8,11 @@ public class Lab {
 		maxCapacity = max;
 	}
 
-	// Constructor
-	public Lab(String fileName, int max) {
-		maxCapacity = max;
-		numInstalled = 0;
-		
-		String serial;
-		String manufacturer;
-		int yearMade;
-		int yearPurchased;
-		double processorSpeed;
-		int ram;
-		int warranty; 
-
-		try {
-			BufferedReader read = new BufferedReader(new FileReader(fileName));
-
-			int numComputers = Integer.parseInt(read.readLine());
-			if(numComputers > maxCapacity) {
-				numComputers = maxCapacity;
-			}
-			
-			computer = new Computer[numComputers];
-			
-			for(int i = 0; i < numComputers; i++) {
-				serial = read.readLine();
-				manufacturer = read.readLine();
-				yearMade = Integer.parseInt(read.readLine());
-				yearPurchased = Integer.parseInt(read.readLine());
-				processorSpeed = Double.parseDouble(read.readLine());
-				ram = Integer.parseInt(read.readLine());
-				warranty = Integer.parseInt(read.readLine());
-
-				computer[i] = new Computer(serial, manufacturer, yearMade, yearPurchased, processorSpeed, ram, warranty);
-				
-				numInstalled++;
-			}
-		} catch(IOException iox) {
-			System.out.println("Problem accessing files");
-		}
-	}
-	
+	// Constructor	
 	public Lab(int max) {
 		maxCapacity = max;
-		computer = null;
+		computer = new Computer[max];
+		numInstalled = 0;
 	}
 
 	// Methods
@@ -70,7 +29,7 @@ public class Lab {
 
 	public int averageAge() {
 		int temp = 0;
-		for(int i = 0; i < computer.length; i++) {
+		for(int i = 0; i < numInstalled; i++) {
 			temp += 2022 - computer[i].getYearMade();
 		}
 		return temp / numInstalled;
@@ -78,7 +37,7 @@ public class Lab {
 
 	public Computer newest() {
 		Computer temp = computer[0];
-		for(int i = 1; i < computer.length; i++) {
+		for(int i = 1; i < numInstalled; i++) {
 			if(temp.getYearMade() > computer[i].getYearMade()) {
 				temp = computer[i];
 			}
@@ -88,7 +47,7 @@ public class Lab {
 
 	public Computer fastest() {
 		Computer temp = computer[0];
-		for(int i = 1; i < computer.length; i++) {
+		for(int i = 1; i < numInstalled; i++) {
 			if(temp.getProcessorSpeed() < computer[i].getProcessorSpeed()) {
 				temp = computer[i];
 			}
@@ -98,7 +57,7 @@ public class Lab {
 
 	public Computer mostRAM() {
 		Computer temp = computer[0];
-		for(int i = 1; i < computer.length; i++) {
+		for(int i = 1; i < numInstalled; i++) {
 			if(temp.getRam() < computer[i].getRam()) {
 				temp = computer[i];
 			}
@@ -108,7 +67,7 @@ public class Lab {
 
 	public int madeBy(String manufacturer) {
 		int made = 0;
-		for(int i = 0; i < computer.length; i++) {
+		for(int i = 0; i < numInstalled; i++) {
 			if(computer[i].getManufacturer().equalsIgnoreCase(manufacturer)) {
 				made++;
 			}
@@ -118,14 +77,14 @@ public class Lab {
 
 	public Computer[] expiring() {
 		int counter = 0;
-		for(int i = 0; i < computer.length; i++) {
+		for(int i = 0; i < numInstalled; i++) {
 			if(computer[i].getWarranty() == 2023) {
 				counter++;
 			}
 		}
 		Computer expiring[] = new Computer[counter];
 		counter = 0;
-		for(int i = 0; i < computer.length; i++) {
+		for(int i = 0; i < numInstalled; i++) {
 			if(computer[i].getWarranty() == 2023) {
 				expiring[counter] = computer[i];
 				counter++;
